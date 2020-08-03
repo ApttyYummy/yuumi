@@ -1,16 +1,16 @@
 # yuumi
 
-## Project setup
+## 安装依赖
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 本地运行项目
 ```
 npm run dev
 ```
 
-### Compiles and minifies for production
+### 打包项目
 ```
 npm run build
 ```
