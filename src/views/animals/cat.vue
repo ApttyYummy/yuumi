@@ -6,15 +6,13 @@
 
 <script>
 export default {
-    name: "hello",
+    name: "cat",
     components: {
         basePeak: () => import("@/common/components/base-peak.vue"),
     },
     data() {
         return {
         };
-    },
-    methods: {
     },
 };
 </script>
