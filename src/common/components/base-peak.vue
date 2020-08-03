@@ -25,11 +25,7 @@ export default {
     methods: {
         /* 初始化 */
         init() {
-
             this.routerList = this.$router.options.routes.filter(item => item.name != this.$route.name);
-            console.log(this.$router);
-            // console.log(this.$route);
-            // console.log('============================');
         },
         /* 前往页面 */
         goPage(path) {

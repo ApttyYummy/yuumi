@@ -35,7 +35,7 @@
  * @param $weight [字体粗细] 
  * @param $text-align [对齐方式] 
  */
-@mixin set-font($size, $line-height, $color, $weight: 400, $text-align: null) {
+@mixin set-font($size, $line-height, $color, $text-align: null, $weight: 400) {
     font-size: $size;
     line-height: $line-height;
     color: $color;

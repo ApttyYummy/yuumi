@@ -6,7 +6,6 @@
 
 <script>
 export default {
-    name: "hello",
     components: {
         basePeak: () => import("@/common/components/base-peak.vue"),
     },
