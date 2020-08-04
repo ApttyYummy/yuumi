@@ -15,3 +15,5 @@
 ## => 安装依赖 lib-flexible , postcss-px2rem
 ## => main.js 中导入 lib-flexible
 ## => 配置 vue.config.js -> css.loaderOptions.postcss
+
+## 配置 路由守卫
