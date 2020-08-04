@@ -15,10 +15,18 @@ module.exports = {
         sourceMap: false,     //是否开启 CSS source map
         modules: false,     
         loaderOptions: {
+            /* 配置px转换rem */
+            // postcss: {
+            //     plugins: [
+            //         require('postcss-px2rem')({
+            //             remUnit: 75
+            //         })
+            //     ]
+            // },
+            /* 全局引用 scss 文件 */
             sass: {
-                /* 全局引用 scss 文件 */
                 prependData: `@import "@/common/style/base.scss";`
-            }
+            },
         },
     }
 }

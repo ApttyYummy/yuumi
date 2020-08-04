@@ -3,5 +3,14 @@
 ## https://github.com/ApttyYummy/yuumi.git
 ## github 上添加 collaborator
 
-## 配置 vue.config.js , 引用全局 scss 文件
+## 引用全局 scss 文件
+## => 安装依赖 sass-resources-loader
+## => 配置 vue.config.js -> css.loaderOptions.sass
 
+## 使用 cnpm 安装
+## => vscode 右键属性 -> 兼容性 -> 下方勾选管理员运行 -> 控制台输入 set-ExecutionPolicy RemoteSigned
+
+## 配置 px2rem 
+## => 安装依赖 lib-flexible , postcss-px2rem
+## => main.js 中导入 lib-flexible
+## => 配置 vue.config.js -> css.loaderOptions.postcss
