@@ -8,6 +8,7 @@
 ## => 配置 vue.config.js -> css.loaderOptions.sass
 
 ## 使用 cnpm 安装
+## => 解决 PowerShell 禁止运行脚本
 ## => vscode 右键属性 -> 兼容性 -> 下方勾选管理员运行 -> 控制台输入 set-ExecutionPolicy RemoteSigned
 
 ## 配置 px2rem 

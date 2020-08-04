@@ -34,7 +34,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.login {
+.login, .logout {
     $height: 20px;
     @include base-box(30%, $height, #36F);
     @include set-font($height - 8, $height, #FFF, center);
@@ -42,10 +42,6 @@ export default {
     margin: 10px auto;
 }
 .logout {
-    $height: 20px;
-    @include base-box(30%, $height, #F63);
-    @include set-font($height - 8, $height, #FFF, center);
-    border-radius: $height;
-    margin: 10px auto;
+    background: #F63;
 }
 </style>
