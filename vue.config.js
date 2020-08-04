@@ -8,12 +8,6 @@ module.exports = {
             warnings: false,  //关闭警告
             errors: true
         },
-        proxy: {              //配置代理
-            "/api": {
-              target: "",
-              secure: false
-            }
-        }
     }, 
     /* css配置相关 */
     css: {
