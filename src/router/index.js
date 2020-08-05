@@ -57,9 +57,7 @@ router.beforeEach((to, from, next) => {
     // 如果匹配到需要登录的页面
     if (to.matched.some(item => item.meta.requireAuth)) {
         if (!store.state.token) {
-            next({
-                path: '/login'
-            })
+            next('/login');
         } else {
             next();
         }
@@ -68,7 +66,7 @@ router.beforeEach((to, from, next) => {
     }
 })
 
-/* 去除重定向报错 */
+/* 重写push方法 */
 const originalPush = VueRouter.prototype.push;
 VueRouter.prototype.push = function push (location, onResolve, onReject) {
   if (onResolve || onReject) return originalPush.call(this, location, onResolve, onReject);

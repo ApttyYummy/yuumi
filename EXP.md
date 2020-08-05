@@ -17,3 +17,5 @@
 ## => 配置 vue.config.js -> css.loaderOptions.postcss
 
 ## 配置 路由守卫
+## 在 router.js 的 router.beforeEach 方法中执行逻辑判断
+## 后续重写 VueRouter 的 push 方法（去除不影响使用的重定向报错 Error: Redirected when going from X to Y via a navigation guard. 问题）
