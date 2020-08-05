@@ -26,4 +26,4 @@
 ## => 在 methods 中声明 ...mapMutations , ...mapActions 后就可以直接使用 $store 里面的函数
 
 ## 配置 keep-alive
-## => 在 App.vue 使用 keep-alive 组件并在其中 include 需要缓存的 vue 文件名称
+## => 在 App.vue 使用 keep-alive 组件并在其中 include 需要缓存的 vue 文件中声明的 name
