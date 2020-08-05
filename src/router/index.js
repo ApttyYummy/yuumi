@@ -6,9 +6,9 @@ Vue.use(VueRouter)
 
 const routes = [
     {
-        path: '/',
+        path: '/hello',
         name: 'hello',
-        component: () => import('@/views/hello.vue'),
+        component: () => import(/* webpackChunkName: "hello" */ '@/views/hello.vue'),
         meta: {
             keepAlive: true,
         }
@@ -16,12 +16,12 @@ const routes = [
     {
         path: '/login',
         name: 'login',
-        component: () => import('@/views/auth/login.vue'),
+        component: () => import(/* webpackChunkName: "login" */ '@/views/auth/login.vue'),
     },
     {
         path: '/cat',
         name: 'cat',
-        component: () => import('@/views/animals/cat.vue'),
+        component: () => import(/* webpackChunkName: "cat" */ '@/views/animals/cat.vue'),
         meta: {
             requireAuth: true,
         },
@@ -29,7 +29,7 @@ const routes = [
     {
         path: '/dog',
         name: 'dog',
-        component: () => import('@/views/animals/dog.vue'),
+        component: () => import(/* webpackChunkName: "dog" */ '@/views/animals/dog.vue'),
         meta: {
             requireAuth: true,
         },
@@ -37,12 +37,12 @@ const routes = [
     {
         path: '/pig',
         name: 'pig',
-        component: () => import('@/views/animals/pig.vue'),
+        component: () => import(/* webpackChunkName: "pig" */ '@/views/animals/pig.vue'),
     },
     {
         path: '*',
         name: '404',
-        component: () => import('@/views/404.vue'),
+        component: () => import(/* webpackChunkName: "404" */ '@/views/404.vue'),
     },
 ]
 

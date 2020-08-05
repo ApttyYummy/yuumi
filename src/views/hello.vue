@@ -1,13 +1,14 @@
 <template> 
     <div class="page">
         <base-peak></base-peak>
-        <div v-if="$store.state.token == 0" class="login" @click="goLogin()">{{$store.state.token | formatToken}}</div>
-        <div v-else-if="$store.state.token == 1" class="logout" @click="logout()">{{$store.state.token | formatToken}}</div>
+        <div v-if="token == 0" class="login" @click="goLogin()">{{token | formatToken}}</div>
+        <div v-else-if="token == 1" class="logout" @click="logout()">{{token | formatToken}}</div>
         <div class="block" :class="[blockColor]" @click="toggleStyle()">{{this.state}}</div>
     </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
     name: "hello",
     components: {
@@ -18,6 +19,10 @@ export default {
             state: 0,
             blockColor: '',
         };
+    },
+    computed: {
+        /* 引用 vuex state */
+        ...mapState(["token"]),
     },
     watch: {
         state(val) {

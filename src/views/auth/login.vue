@@ -1,12 +1,13 @@
 <template> 
     <div class="page">
         <base-peak></base-peak>
-        <div v-if="$store.state.token == 1" class="login" @click="_logout()">{{$store.state.token | formatToken}}</div>
-        <div v-else-if="$store.state.token == 0" class="logout" @click="_login()">{{$store.state.token | formatToken}}</div>
+        <div v-if="token === 1" class="login" @click="logout()">{{token | formatToken}}</div>
+        <div v-else-if="token === 0" class="logout" @click="login()">{{token | formatToken}}</div>
     </div>
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex';
 export default {
     name: "login",
     components: {
@@ -16,13 +17,14 @@ export default {
         return {
         };
     },
+    computed: {
+        ...mapState(["token"]),
+    },
+    mounted() {
+    },
     methods: {
-        _login() {
-            this.$store.commit('login');
-        },
-        _logout() {
-            this.$store.commit('logout');
-        },
+        /* 导入vuex mutations */
+        ...mapMutations(["login", "logout"]),
     },
     filters: {
         formatToken(token) {
