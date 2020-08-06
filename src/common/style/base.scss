@@ -11,7 +11,29 @@
     background-color: $background-color;
 }
 
-/*
+/**
+ * 弹性盒子
+ * @param $dir [排列方向] row: 横向排列 / column: 纵向排列
+ * @param $align [align-items]
+ * @param $justify-content [对齐方式]
+ */
+ @mixin flex-box($dir: row, $align: null, $justify-content: null) {
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: $dir;
+    align-items: $align;
+    justify-content: $justify-content;
+}
+
+/**
+ * 弹性盒子占位
+ * @param $flex-grow [扩展比率]
+ */
+ @mixin flex-space($flex-grow) {
+    flex-grow: $flex-grow;
+}
+
+/**
  * 位置盒子   
  * @param $position [盒子位置]
  * @param $top [顶部偏移量]
@@ -27,7 +49,7 @@
     left: $left;
 }
 
-/*
+/**
  * 设置字体  
  * @param $size [字体大小]
  * @param $line-height [字体行高] 
@@ -44,7 +66,7 @@
     @include noselect;
 }
 
-/*
+/**
  * 设置Z轴  
  * @param $z-index [Z轴上堆叠顺序]
  * @param $position [盒子位置]  
@@ -52,6 +74,36 @@
 @mixin set-Z($z-index, $position: null) {
     z-index: $z-index;
     position: $position;
+}
+
+/**
+ * 封装动画  
+ * @param $animation-name [动画名称]
+ */
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+/**
+ * 动画  
+ * @param $options [动画配置]
+ */
+$cores: ('-webkit-', '-moz-', '-o-', '-ms-', '');
+@mixin animation($options) {
+    @each $core in $cores {
+        #{$core}animation: $options;
+    }
 }
 
 /* 禁止选中 */
@@ -66,15 +118,29 @@
 }
 
 /* 过渡动画 */
-.slide-fade-enter-active {
-    transition: all .5s ease;
+.slide {
+    &-left {
+        &-enter-active {
+            transition: all .5s ease;
+        }
+        &-leave-active {
+            transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+        }
+        &-enter, &-leave-to {
+            transform: translateX(10px);
+            opacity: 0;
+        }
+    }
+    &-fade {
+        &-enter-active {
+            transition: all .5s ease;
+        }
+        &-leave-active {
+            transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+        }
+        &-enter, &-leave-to {
+            transform: translateY(-10px);
+            opacity: 0;
+        }
+    }
 }
-
-.slide-fade-leave-active {
-    transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-}
-
-.slide-fade-enter, .slide-fade-leave-to {
-    transform: translateY(-10px);
-    opacity: 0;
-} 

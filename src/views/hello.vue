@@ -4,20 +4,25 @@
         <div v-if="token == 0" class="login" @click="goLogin()">{{token | formatToken}}</div>
         <div v-else-if="token == 1" class="logout" @click="logout()">{{token | formatToken}}</div>
         <div class="block" :class="[blockColor]" @click="toggleStyle()">{{this.state}}</div>
+        <div class="block" @click="showLoading = !showLoading">{{this.state}}</div>
+
+        <loading v-if="showLoading" @close="showLoading = false"/>
     </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapMutations } from 'vuex';
 export default {
     name: "hello",
     components: {
         basePeak: () => import("@/common/components/base-peak.vue"),
+        loading: () => import("@/common/components/loading.vue"),
     },
     data() {
         return {
             state: 0,
             blockColor: '',
+            showLoading: false,
         };
     },
     computed: {
@@ -40,6 +45,8 @@ export default {
     mounted() {
     },
     methods: {
+        /* 导入 vuex mutations */
+        ...mapMutations(['logout']),
         /* 切换class */
         toggleStyle() {
             this.state++;
@@ -47,10 +54,6 @@ export default {
         /* 去登录 */
         goLogin() {
             this.$router.push('/login');
-        },
-        /* 登出 */
-        logout() {
-            this.$store.commit('logout');
         },
     },
     filters: {

@@ -28,5 +28,5 @@ module.exports = {
                 prependData: `@import "@/common/style/base.scss";`
             },
         },
-    }
+    },
 }

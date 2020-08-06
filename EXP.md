@@ -27,3 +27,10 @@
 
 ## 配置 keep-alive
 ## => 在 App.vue 使用 keep-alive 组件并在其中 include 需要缓存的 vue 文件中声明的 name
+
+## loading
+## => 新增 loading 组件并封装编写动画
+
+## TODO
+## 防抖 节流
+## z-index

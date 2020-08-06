@@ -6,7 +6,7 @@ Vue.use(VueRouter)
 
 const routes = [
     {
-        path: '/hello',
+        path: '/',
         name: 'hello',
         component: () => import(/* webpackChunkName: "hello" */ '@/views/hello.vue'),
         meta: {
@@ -24,6 +24,7 @@ const routes = [
         component: () => import(/* webpackChunkName: "cat" */ '@/views/animals/cat.vue'),
         meta: {
             requireAuth: true,
+            keepAlive: true,
         },
     },
     {

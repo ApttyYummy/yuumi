@@ -1,8 +1,14 @@
 <template>
     <div id="app">
-        <keep-alive include="hello">
-            <router-view />
-        </keep-alive>
+        <transition name="slide-left">
+            <keep-alive>
+                <router-view v-show="$route.meta.keepAlive" />
+            </keep-alive>
+        </transition>
+
+        <transition name="slide-left">
+            <router-view v-show="!$route.meta.keepAlive" />
+        </transition>
     </div>
 </template>
 
