@@ -4,7 +4,7 @@
         <div v-if="token == 0" class="login" @click="goLogin()">{{token | formatToken}}</div>
         <div v-else-if="token == 1" class="logout" @click="logout()">{{token | formatToken}}</div>
         <div class="block" :class="[blockColor]" @click="toggleStyle()">{{this.state}}</div>
-        <div class="block" @click="showLoading = !showLoading">{{this.state}}</div>
+        <div class="block" @click="showLoading = !showLoading">Show Loading</div>
 
         <loading v-if="showLoading" @close="showLoading = false"/>
     </div>
