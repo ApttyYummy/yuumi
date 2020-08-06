@@ -6,7 +6,7 @@
 
 <script>
 export default {
-    name: "cat",
+    name: "pig",
     components: {
         basePeak: () => import("@/common/components/base-peak.vue"),
     },
