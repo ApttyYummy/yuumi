@@ -19,6 +19,14 @@ const routes = [
         component: () => import(/* webpackChunkName: "login" */ '@/views/auth/login.vue'),
     },
     {
+        path: '/play',
+        name: 'play',
+        component: () => import(/* webpackChunkName: "play" */ '@/views/play/play.vue'),
+        meta: {
+            keepAlive: true,
+        }
+    },
+    {
         path: '/cat',
         name: 'cat',
         component: () => import(/* webpackChunkName: "cat" */ '@/views/animals/cat.vue'),

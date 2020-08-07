@@ -1,11 +1,13 @@
 <template> 
     <div class="page">
         <base-peak></base-peak>
+
         <div v-if="token == 0" class="login" @click="goLogin()">{{token | formatToken}}</div>
         <div v-else-if="token == 1" class="logout" @click="logout()">{{token | formatToken}}</div>
         <div class="block" :class="[blockColor]" @click="toggleStyle()">{{this.state}}</div>
         <div class="block" @click="showLoading = !showLoading">Show Loading</div>
-
+        <div class="block" @click="handleClick()">{{this.tag}}</div>
+        
         <loading v-if="showLoading" @close="showLoading = false"/>
     </div>
 </template>
@@ -23,6 +25,7 @@ export default {
             state: 0,
             blockColor: '',
             showLoading: false,
+            tag: 0,
         };
     },
     computed: {
@@ -70,8 +73,8 @@ export default {
     $height: 20px;
     @include base-box(30%, $height);
     @include set-font($height - 8, $height, #09F, center);
-    border: 1px solid #09F;
     margin: 10px auto;
+    border: 1px solid #09F;
 }
 .logout {
     color: #F90;
