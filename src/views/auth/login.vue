@@ -11,7 +11,6 @@ import { mapState, mapMutations } from 'vuex';
 export default {
     name: "login",
     components: {
-        basePeak: () => import("@/common/components/base-peak.vue"),
     },
     data() {
         return {

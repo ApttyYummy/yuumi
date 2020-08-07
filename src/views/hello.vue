@@ -6,7 +6,6 @@
         <div v-else-if="token == 1" class="logout" @click="logout()">{{token | formatToken}}</div>
         <div class="block" :class="[blockColor]" @click="toggleStyle()">{{this.state}}</div>
         <div class="block" @click="showLoading = !showLoading">Show Loading</div>
-        <div class="block" @click="handleClick()">{{this.tag}}</div>
         
         <loading v-if="showLoading" @close="showLoading = false"/>
     </div>
@@ -17,8 +16,6 @@ import { mapState, mapMutations } from 'vuex';
 export default {
     name: "hello",
     components: {
-        basePeak: () => import("@/common/components/base-peak.vue"),
-        loading: () => import("@/common/components/loading.vue"),
     },
     data() {
         return {

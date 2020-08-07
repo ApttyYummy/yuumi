@@ -16,13 +16,13 @@ module.exports = {
         modules: false,     
         loaderOptions: {
             /* 配置px转换rem */
-            // postcss: {
-            //     plugins: [
-            //         require('postcss-px2rem')({
-            //             remUnit: 75
-            //         })
-            //     ]
-            // },
+            postcss: {
+                plugins: [
+                    require('postcss-px2rem')({
+                        remUnit: 20
+                    })
+                ]
+            },
             /* 全局引用 scss 文件 */
             sass: {
                 prependData: `@import "@/common/style/base.scss";`

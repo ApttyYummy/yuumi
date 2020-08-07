@@ -13,7 +13,6 @@
 import { debounce, throttle } from "@/common/utils/index";
 export default {
     components: {
-        basePeak: () => import("@/common/components/base-peak.vue"),
     },
     data() {
         return {

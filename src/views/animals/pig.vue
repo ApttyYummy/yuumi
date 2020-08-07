@@ -8,7 +8,6 @@
 export default {
     name: "pig",
     components: {
-        basePeak: () => import("@/common/components/base-peak.vue"),
     },
     data() {
         return {

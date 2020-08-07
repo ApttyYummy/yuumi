@@ -1,15 +1,18 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import store from './store'
+import Vue from 'vue';
+import App from './App.vue';
+import router from './router';
+import store from './store';
 
 /* 移动端适配 */
-import 'lib-flexible'
+import 'lib-flexible';
+
+/* 引用公共组件 */
+import './common/components';
 
 Vue.config.productionTip = false
 
 new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+    router,
+    store,
+    render: h => h(App)
+}).$mount('#app');
