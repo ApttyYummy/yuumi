@@ -27,10 +27,23 @@
 
 ## 配置 keep-alive
 ## => 在 App.vue 使用 keep-alive 组件并在其中 include 需要缓存的 vue 文件中声明的 name
+## => 或者结合路由中声明的 meta.keepAlive 为 true , 在 App.vue 中 router-view 使用 v-if 控制需要缓存的组件 （使用 v-show 会导致组件多次初始化）
 
 ## loading
 ## => 新增 loading 组件并封装编写动画
 
+## 组件聚合 + 全局引用
+## => 在 common/components 目录中的 index.js 对组件进行全局引用
+## => 通过 require.context 获取目录下所有 vue 文件进行聚合然后注册
+## => 在 main.js 中导入该 index.js
+
+## store
+## => 使用 mockjs + axios 模拟发送请求数据
+## => 使用商品组件以及优惠券组件，动态获取商品价格，折扣价格以及计算总价
+
 ## TODO
 ## 防抖 节流
 ## z-index
+## async await
+## 深拷贝
+## 策略

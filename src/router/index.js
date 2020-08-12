@@ -24,29 +24,16 @@ const routes = [
         component: () => import(/* webpackChunkName: "play" */ '@/views/play/play.vue'),
         meta: {
             keepAlive: true,
+            // requireAuth: true, //需要登录才能访问
         }
     },
     {
-        path: '/cat',
-        name: 'cat',
-        component: () => import(/* webpackChunkName: "cat" */ '@/views/animals/cat.vue'),
+        path: '/store',
+        name: 'store',
+        component: () => import(/* webpackChunkName: "play" */ '@/views/play/store.vue'),
         meta: {
-            requireAuth: true,
             keepAlive: true,
-        },
-    },
-    {
-        path: '/dog',
-        name: 'dog',
-        component: () => import(/* webpackChunkName: "dog" */ '@/views/animals/dog.vue'),
-        meta: {
-            requireAuth: true,
-        },
-    },
-    {
-        path: '/pig',
-        name: 'pig',
-        component: () => import(/* webpackChunkName: "pig" */ '@/views/animals/pig.vue'),
+        }
     },
     {
         path: '*',
