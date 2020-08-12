@@ -5,6 +5,7 @@
         <div v-if="token == 0" class="login" @click="goLogin()">{{token | formatToken}}</div>
         <div v-else-if="token == 1" class="logout" @click="logout()">{{token | formatToken}}</div>
         <div class="block" :class="[blockColor]" @click="toggleStyle()">{{this.state}}</div>
+        <div class="block" :style="{background: `hsl(${state % 360 + 120}, 50%, 75%)`}" @click="toggleStyle()">{{this.state}}</div>
         <div class="block" @click="showLoading = !showLoading">Show Loading</div>
         
         <loading v-if="showLoading" @close="showLoading = false"/>
@@ -22,7 +23,6 @@ export default {
             state: 0,
             blockColor: '',
             showLoading: false,
-            tag: 0,
         };
     },
     computed: {
@@ -39,17 +39,19 @@ export default {
             const size = classMap.length;
             classMap.forEach((item, index) => {
                 if (val % size === index) this.blockColor = item;
-            })
+            });
+            immediate: true
         },
     },
     mounted() {
+        this.toggleStyle();
     },
     methods: {
         /* 导入 vuex mutations */
         ...mapMutations(['logout']),
         /* 切换class */
         toggleStyle() {
-            this.state++;
+            this.state += 5;
         },
         /* 去登录 */
         goLogin() {
@@ -78,7 +80,7 @@ export default {
     border: 1px solid #F90;
 }
 .block {
-    @include base-box(30%, 22px, #F36);
+    @include base-box(30%, 22px);
     @include set-font(12px, 22px, #FFF, center);
     margin: 10px auto;
     &-one {
