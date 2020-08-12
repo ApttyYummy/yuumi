@@ -17,12 +17,13 @@
  * @param $align [align-items]
  * @param $justify-content [对齐方式]
  */
- @mixin flex-box($dir: row, $align: null, $justify-content: null) {
+ @mixin flex-box($dir: row, $align: null, $justify-content: null, $flex-wrap: null) {
     display: -webkit-flex;
     display: flex;
     flex-direction: $dir;
     align-items: $align;
     justify-content: $justify-content;
+    flex-wrap: $flex-wrap;
 }
 
 /**
@@ -95,26 +96,40 @@
     }
 }
 
+/* 内核组 */
+$cores: (
+    '-webkit-',  /* Chrome / Safari */
+    '-moz-',     /* Firefox */
+    '-o-',       /* Opera */
+    '-ms-',      /* Internet Explorer / Edge */
+    '',          /* Non-prefixed version, currently not supported by any browser */
+);
+
 /**
  * 动画  
  * @param $options [动画配置]
  */
-$cores: ('-webkit-', '-moz-', '-o-', '-ms-', '');
 @mixin animation($options) {
     @each $core in $cores {
         #{$core}animation: $options;
     }
 }
 
+/**
+ * transform  
+ * @param $options [变换配置]
+ */
+@mixin transform($options) {
+    @each $core in $cores {
+        #{$core}transform: $options;
+    }
+}
+
 /* 禁止选中 */
 @mixin noselect {
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Chrome/Safari/Opera */
-    -khtml-user-select: none; /* Konqueror */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently
-    not supported by any browser */
+    @each $core in $cores {
+        #{$core}user-select: none;
+    }
 }
 
 /* 过渡动画 */
@@ -143,4 +158,11 @@ $cores: ('-webkit-', '-moz-', '-o-', '-ms-', '');
             opacity: 0;
         }
     }
+}
+
+/* 测试用 */
+.test-part {
+    @include base-box(60px, 20px, #69F);
+    @include set-font(12px, 20px, #FFF, center);
+    border-radius: 20px;
 }
