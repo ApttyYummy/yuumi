@@ -9,7 +9,11 @@ import 'lib-flexible';
 /* 引用公共组件 */
 import './common/components';
 
-Vue.config.productionTip = false
+/* mixin */
+import mixin from './common/mixin';
+Vue.mixin(mixin);
+
+Vue.config.productionTip = false;
 
 new Vue({
     router,
