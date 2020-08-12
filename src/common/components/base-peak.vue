@@ -54,6 +54,7 @@ export default {
             @include set-font($height - 14, $height, #FFF);
             padding: 0 10px;
             border: 1px solid #9FE;
+            box-sizing: border-box;
         }
     }
 }
