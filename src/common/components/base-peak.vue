@@ -38,19 +38,19 @@ export default {
 <style lang="scss" scoped>
 .peak {
     $height: 30px;
-    @include set-Z(1000, relative);
+    @include set-Z('peak', relative);
     &-main {
         @include locat-box(fixed);
         @include base-box(100%, $height, #39E);
         @include set-font($height - 10, $height, #FFF, center);
-        @include set-Z(600);
+        @include set-Z('peak');
     }
     &-size {
         @include base-box(100%, $height);
     }
     &-menu {
         @include base-box(100%, null);
-        @include set-Z(500, absolute);
+        @include set-Z('peak-menu', fixed);
         &-item {
             @include base-box(100%, $height, #6CE);
             @include set-font($height - 14, $height, #FFF);

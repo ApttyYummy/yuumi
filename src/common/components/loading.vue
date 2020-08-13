@@ -38,7 +38,7 @@ export default {
     @include base-box(100%, 100%, rgba($color: #000, $alpha: 0.3));
     @include flex-box(column, center);
     @include locat-box(fixed, 0, 0, 0, 0);
-    @include set-Z(9999);
+    @include set-Z('loading');
     &-space {
         @include flex-space(1);
     }

@@ -85,13 +85,23 @@
     @include noselect;
 }
 
+/* 堆叠层级 */
+$level: (
+    'screen-menu',   
+    'screen',   
+    'peak-menu',   
+    'peak', 
+    'popup',
+    'loading',   
+);
+
 /**
  * 设置Z轴  
- * @param $z-index [Z轴上堆叠顺序]
+ * @param $z-index [Z轴上堆叠等级]
  * @param $position [盒子位置]  
  */
-@mixin set-Z($z-index, $position: null) {
-    z-index: $z-index;
+@mixin set-Z($z-level, $position: null) {
+    z-index: index($level, $z-level);
     position: $position;
 }
 
@@ -156,10 +166,7 @@ $cores: (
         &-enter-active {
             transition: all .4s ease;
         }
-        &-leave-active {
-            transition: all .4s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-        }
-        &-enter, &-leave-to {
+        &-enter {
             transform: translateX(10px);
             opacity: 0;
         }

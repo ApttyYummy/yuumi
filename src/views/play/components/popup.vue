@@ -42,7 +42,7 @@ export default {
 .page {
     @include base-box(100%);
     @include locat-box(fixed, 0, 0, 0, 0);
-    @include set-Z(9000);
+    @include set-Z('popup');
     @include flex-box(column);
     .mask {
         @include flex-space(1);

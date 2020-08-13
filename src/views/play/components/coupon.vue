@@ -103,7 +103,7 @@ export default {
         @include base-box(null, $height, #eee);
         @include flex-box(column, flex-start);
         @include flex-space(1);
-        @include set-Z(0, relative);
+        @include set-Z(null, relative);
         box-sizing: border-box;
         padding: 8px;
         &-name {

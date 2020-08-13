@@ -71,11 +71,11 @@ export default {
 <style lang="scss" scoped>
 $height: 20px;
 .screen {
-    @include set-Z(100, relative);
+    @include set-Z('screen', relative);
     &-header {
         @include base-box(100%, $height, #61EB8F);
         @include flex-box(row, center);
-        @include set-Z(100, relative);
+        @include set-Z('screen', relative);
         box-sizing: border-box;
         &-item {
             @include set-font(12px, $height, #FFF, center);
@@ -85,7 +85,7 @@ $height: 20px;
     }
     &-menu {
         @include base-box(100%, null, #61EB8F);
-        @include set-Z(50, absolute);
+        @include set-Z('screen-menu', absolute);
         @include set-border(#13BF83);
         &-option {
             @include base-box(100%, $height, #61EB8F);

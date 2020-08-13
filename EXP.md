@@ -37,15 +37,21 @@
 ## => 通过 require.context 获取目录下所有 vue 文件进行聚合然后注册
 ## => 在 main.js 中导入该 index.js
 
-## store
+## store 模拟商品页
 ## => 使用 mockjs + axios 模拟发送请求数据
+## => 使用筛选组件，对返回的商品数据进行筛选显示
 ## => 使用商品组件以及优惠券组件，动态获取商品价格，折扣价格以及计算总价
+
+## z-index 封装
+## => 在 base.scss 中声明一个存放 z-index 的数组 $level
+## => 使用 index($level, $z-level) 获取 $z-level 的 index 赋值到 z-index 
+## => 后续需要添加配置 z-index 的元素置入 $level 即可
 
 ## TODO
 ## 防抖 节流
-## z-index
 ## async await
 ## 深拷贝
 ## 策略
 ## 页码
 ## 上下滑动
+## 优惠券不可用
