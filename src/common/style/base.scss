@@ -35,6 +35,24 @@
 }
 
 /**
+ * 设置盒子边框
+ * @param $color [边框颜色]
+ * @param $width [边框宽度]
+ * @param $style [边框样式]
+ * @param $dirs [边框方向]
+ */
+ @mixin set-border($color, $width: 1px, $style: solid, $dirs: null) {
+    @if ($dirs) {
+        @each $dir in $dirs {
+            border-#{$dir}: $width $style $color;
+        }
+    } @else {
+        border: $width $style $color;
+    }
+    box-sizing: border-box;
+}
+
+/**
  * 位置盒子   
  * @param $position [盒子位置]
  * @param $top [顶部偏移量]
@@ -58,7 +76,7 @@
  * @param $weight [字体粗细] 
  * @param $text-align [对齐方式] 
  */
-@mixin set-font($size, $line-height, $color, $text-align: null, $weight: 400) {
+@mixin set-font($size, $line-height, $color, $text-align: null, $weight: null) {
     font-size: $size;
     line-height: $line-height;
     color: $color;
@@ -154,7 +172,7 @@ $cores: (
             transition: all .4s cubic-bezier(1.0, 0.5, 0.8, 1.0);
         }
         &-enter, &-leave-to {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
             opacity: 0;
         }
     }
