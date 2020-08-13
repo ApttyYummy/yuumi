@@ -38,23 +38,24 @@ export default {
 <style lang="scss" scoped>
 .peak {
     $height: 30px;
+    @include set-Z(1000, relative);
     &-main {
         @include locat-box(fixed);
         @include base-box(100%, $height, #39E);
         @include set-font($height - 10, $height, #FFF, center);
-        @include set-Z(100);
+        @include set-Z(600);
     }
     &-size {
         @include base-box(100%, $height);
     }
     &-menu {
-        height: auto;
+        @include base-box(100%, null);
+        @include set-Z(500, absolute);
         &-item {
             @include base-box(100%, $height, #6CE);
             @include set-font($height - 14, $height, #FFF);
+            @include set-border(#9FE);
             padding: 0 10px;
-            border: 1px solid #9FE;
-            box-sizing: border-box;
         }
     }
 }
