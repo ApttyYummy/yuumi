@@ -76,7 +76,7 @@ export default {
 
 <style lang="scss" scoped>
 .coupon {
-    $theme: #F9C;
+    $theme: #61EB8F;
     $height: 40px;
     @include base-box(96%, $height);
     @include flex-box(row, center);
@@ -140,14 +140,12 @@ export default {
         @include locat-box(absolute, null, 8px);
         &-on {
             @include base-box($size);
-            border: 1px solid $theme;
+            @include set-border($theme);
             border-radius: $size;
-            box-sizing: border-box;
             &-tick {
-                @include base-box($unit * 3, $unit * 5);
+                @include base-box($unit * 4, $unit * 6);
                 @include transform(rotate(45deg));
-                border-bottom: 1px solid $theme;
-                border-right: 1px solid $theme;
+                @include set-border($theme, $dirs: ('right', 'bottom'));
                 margin: 0 auto;
             }
         }

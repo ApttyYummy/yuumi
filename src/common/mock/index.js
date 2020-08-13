@@ -2,7 +2,7 @@ import Mock from 'mockjs';
 
 /* 生成商品列表 */
 Mock.mock('/getGoodsList', {
-    "data|4": [{
+    "data|8": [{
         'goodsId|+1': 1001,
         'name': '@first',
         'price|10-20': 10,

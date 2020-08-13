@@ -1,6 +1,8 @@
 <template>
     <div class="page">
         <base-peak></base-peak>
+        <!-- 筛选 -->
+        <screen></screen>
         <!-- 商品 -->
         <goods :list="goodsList" @getGoodsPrice="_getGoodsPrice"></goods>
         <!-- 价格计算 -->
@@ -31,6 +33,7 @@ import axios from "axios";
 export default {
     name: 'store',
     components: {
+        screen: () => import('./components/screen.vue'),  //条件筛选
         goods: () => import('./components/goods.vue'),    //商品列表
         popup: () => import('./components/popup.vue'),    //弹窗
         coupon: () => import('./components/coupon.vue'),  //优惠券列表
@@ -38,6 +41,7 @@ export default {
     data() {
         return {
             goodsList: [],    //商品列表
+            _goodsList: [],   //商品列表缓存
             goodsPrice: 0,    //商品总价
             couponList: [],   //优惠券列表
             couponAmount: 0,  //优惠金额
@@ -53,8 +57,6 @@ export default {
     },
     mounted() {
         this.init();
-        let aa = this.couponAmount === 1;
-        console.log('aa', aa);
     },
     methods: {
         /* 初始化数据 */
@@ -66,6 +68,7 @@ export default {
         getGoodsData() {
             axios.post('/getGoodsList').then(({data,}) => {
                 this.goodsList = data.data;
+                this._goodsList = data.data;
             });
         },
         /* 获取优惠券数据 */
@@ -82,6 +85,29 @@ export default {
         _getCouponAmount: function(couponAmount) {
             this.couponAmount = couponAmount;
         },
+        /* 查询数据 */
+        queryData(query) {
+            this.sortPriceSection(query.section);
+            this.sortGoodsPrice(query.sort);
+        },
+        /* 排序商品价格 */
+        sortGoodsPrice(sortType) {
+            // console.log('parent sort type', sortType);
+            this.goodsList.sort((a, b) => {
+                if (sortType === 'U') return a.price - b.price;
+                else if (sortType === 'D')  return  b.price - a.price;
+            });
+        },
+        /* 筛选价格区间 */
+        sortPriceSection(section) {
+            // console.log('parent section', section);
+            if (section) {
+                const 
+                    min = section.split('-')[0],
+                    max = section.split('-')[1];
+                this.goodsList = this._goodsList.filter(item => item.price >= min && item.price <= max); 
+            }
+        },
     },
 };
 </script>
@@ -95,20 +121,20 @@ export default {
         @include flex-box(row, center);
         @include base-box(100%, $height);
         &-text {
-            @include set-font(10px, $height, #C9F, right);
+            @include set-font(10px, $height, #7FE7F0, right);
         }
         &-value {
-            @include set-font(10px, $height, #C9F, right);
+            @include set-font(10px, $height, #7FE7F0, right);
             @include flex-space(1);
         }
     }
     &-coupon {
-        border-bottom: 1px solid #F9C;
+        @include set-border(#61EB8F, $dirs: ('bottom'));
         &-text {
-            @include set-font(10px, $height, #F9C, right);
+            @include set-font(10px, $height, #61EB8F, right);
         }
         &-value {
-            @include set-font(10px, $height, #F9C, right);
+            @include set-font(10px, $height, #61EB8F, right);
             @include flex-space(1);
         }
     }

@@ -55,12 +55,12 @@ export default {
     @include flex-box(row, flex-start, null, wrap);
     margin: 5px auto;
     .goods {
-        @include base-box(40%, 60px, #F9C);
+        @include base-box(40%, 60px, #C9F8FF);
         @include flex-box(column, center);
         margin: 2px 5%;
         border-radius: 4px;
         &-checked {
-            background-color: #C9F;
+            background-color: #7FE7F0;
         }
         &-space {
             @include flex-space(1);
